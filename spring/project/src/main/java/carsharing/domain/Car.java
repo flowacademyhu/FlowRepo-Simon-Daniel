@@ -1,10 +1,8 @@
-package domain;
+package carsharing.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "cars")
@@ -20,15 +18,18 @@ public class Car {
     private String type;
 
     @Column(name = "vintage")
-    private String vintage;
+    private int vintage;
 
     @Column(name = "traffic_test_date")
     private LocalDate trafficTestDate;
 
+    @OneToMany(mappedBy = "car")
+    private List<Reservation> reservations;
+
     public Car() {
     }
 
-    public Car(String plateNumber, String brand, String type, String vintage, LocalDate trafficTestDate) {
+    public Car(String plateNumber, String brand, String type, int vintage, LocalDate trafficTestDate) {
         this.plateNumber = plateNumber;
         this.brand = brand;
         this.type = type;
@@ -60,11 +61,11 @@ public class Car {
         this.type = type;
     }
 
-    public String getVintage() {
+    public int getVintage() {
         return vintage;
     }
 
-    public void setVintage(String vintage) {
+    public void setVintage(int vintage) {
         this.vintage = vintage;
     }
 
@@ -74,5 +75,17 @@ public class Car {
 
     public void setTrafficTestDate(LocalDate trafficTestDate) {
         this.trafficTestDate = trafficTestDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "plateNumber='" + plateNumber + '\'' +
+                ", brand='" + brand + '\'' +
+                ", type='" + type + '\'' +
+                ", vintage='" + vintage + '\'' +
+                ", trafficTestDate=" + trafficTestDate +
+                ", reservations=" + reservations +
+                '}';
     }
 }
