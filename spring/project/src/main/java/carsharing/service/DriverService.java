@@ -1,4 +1,15 @@
 package carsharing.service;
 
+import carsharing.domain.Driver;
+import carsharing.repository.DriverRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+@Transactional
 public class DriverService {
+
+    @Autowired
+    private DriverRepository driverRepository;
 }
