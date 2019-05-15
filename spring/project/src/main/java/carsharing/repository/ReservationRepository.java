@@ -1,6 +1,7 @@
 package carsharing.repository;
 
 import carsharing.domain.Car;
+import carsharing.domain.Driver;
 import carsharing.domain.Reservation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,6 +15,9 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
 
     public void deleteById(Long id);
 
-//    @Query("FROM TodoItem todoItem WHERE todoItem.user.login = ?1")
-//    public List<Car> findByUserLogint(@Param("login") String login);
+    public List<Reservation> findByCar(Car car);
+
+    public List<Reservation> findByDriver_LoginName(String loginName);
+
+    public List<Reservation> findByCar_PlateNumber(String plateNumber);
 }

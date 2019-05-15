@@ -38,4 +38,19 @@ public class ReservationController {
         return ResponseEntity.ok(reservationService.listReservation());
     }
 
+    @GetMapping("/get-by-id/{id}")
+    public ResponseEntity<Reservation> getCarById(@PathVariable Long id) {
+        return ResponseEntity.ok(reservationService.getReservationById(id));
+    }
+
+    @GetMapping("/get-by-login-name/{loginName}")
+    public ResponseEntity<List<Reservation>> getCarsByDriver(@PathVariable String loginName) {
+        return ResponseEntity.ok(reservationService.getReservationsByDriver(loginName));
+    }
+
+    @GetMapping("/get-by-plate-number/{plateNumber}")
+    public ResponseEntity<List<Reservation>> getCarsByCar(@PathVariable String plateNumber) {
+        return ResponseEntity.ok(reservationService.getReservationsByCar(plateNumber));
+    }
+
 }

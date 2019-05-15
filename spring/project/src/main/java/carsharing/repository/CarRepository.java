@@ -13,6 +13,7 @@ public interface CarRepository extends JpaRepository<Car, String> {
 
     public List<Car> findByBrand(String brand);
 
+
     public List<Car> findByType(String type);
 
 

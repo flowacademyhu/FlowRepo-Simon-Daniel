@@ -25,11 +25,15 @@ public class DriverService {
         return driverRepository.save(driver);
     }
 
-    public void delete(String id) throws Exception {
+    public void delete(String id) {
         for (int i = 0; i < reservationRepository.findAll().size(); i++) {
             Reservation chosenResevation = reservationRepository.findAll().get(i);
             if (chosenResevation.getDriver().getFullname() == id) {
-                throw new Exception();
+                try {
+                    throw new Exception();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
             driverRepository.deleteById(id);
         }

@@ -24,11 +24,15 @@ public class CarService {
         return carRepository.save(car);
     }
 
-    public void delete(String id) throws Exception {
+    public void delete(String id) {
         for (int i = 0; i < reservationRepository.findAll().size(); i++) {
             Reservation chosenResevation = reservationRepository.findAll().get(i);
             if (chosenResevation.getCar().getPlateNumber() == id) {
-                throw new Exception();
+                try {
+                    throw new Exception();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
             carRepository.deleteById(id);
         }
@@ -43,13 +47,11 @@ public class CarService {
         return carRepository.findById(id).get();
     }
 
-    public List<Car> listCarsbyBrand(String brand) {
-
+    public List<Car> listCarsByBrand(String brand) {
         return carRepository.findByBrand(brand);
     }
 
-    public List<Car> listCarsbyType(String type) {
-
+    public List<Car> listCarsByType(String type) {
         return carRepository.findByType(type);
     }
 
