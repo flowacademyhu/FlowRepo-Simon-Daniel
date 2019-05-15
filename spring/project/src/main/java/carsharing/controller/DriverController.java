@@ -1,9 +1,6 @@
 package carsharing.controller;
 
-import carsharing.domain.Car;
 import carsharing.domain.Driver;
-import carsharing.repository.DriverRepository;
-import carsharing.service.CarService;
 import carsharing.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
