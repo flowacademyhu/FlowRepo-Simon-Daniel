@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="order.css" />
+    <script src="main.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <title>Rendelés</title>
+  </head>
+  <body>
+    <div id="header">Zabáljá!</div>
+    
+    <div class="headtable">
+      <div></div>
+      <div><a href="main.html">Főoldal</a></div>
+    <div><a href="price.html">Étlap</a></div>
+    <div><a href=order.html>Rendelés</a></div>
+    <div><a href="kapcsolatok.html"> Kapcsolatok</a></div>
+      <div></div>
+    </div>
+    <form action="#" >
+      <label for="name">Név:</label><br>
+      <input type="text" name="name"><br>
+      <label for="phone"> Telefonszám: </label><br>
+      <input type="tel" name="tel"><br>
+      <label for="emial">E-mail:</label><br>
+      <input type="email" name="email"><br>
+      <label for="address">Cím:</label><br>
+      <input type="text" name="address"><br>      
+      <label for="pay">Fizetés:</label><br>
+      <input type="radio" name="pay" value="bitcoin" checked> Bitcoin
+      <input type="radio" name="pay" value="keszpenz"> Készpénz
+      <input type="radio" name="pay" value="kartya"> Bankkártya<br>
+      <label>Kedvezmény:</label><br>
+      <select>
+      <option>Nincs</option>
+        <option>Diák</option>
+        <option>Nyugdíjas</option>
+        <option>Flow</option>
+        
+      </select>
+
+      <br>
+      <input type="submit" onclick="alert('Remélem eddig tetszik.')" value="Megrendelem" >
+    </form> 
+    
+    <table id="foot">
+        </tr>
+        <tr>
+        <th>Zabáljá!<br>Éttermünk címe: 6720 Szeged, Kárász utca 11<br>Telefonszám: (+36-62) 544-000<br>E-mail: info@zabalja.co.hu  </th>
+        <th id="footHead">(C) 2019 Simon Dániel Zoltán. Minden jog fenntartva.</th>
+        </tr>
+        </table>
+  </body>
+</html>

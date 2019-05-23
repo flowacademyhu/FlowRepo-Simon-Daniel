@@ -1,0 +1,9 @@
+<select [(ngModel)]="sel">
+  <option value="ars">Arsenal</option>
+  <option value="pool">Liverpool</option>
+  <option value="man">Manchester United</option>
+</select><br>
+
+<app-ars *ngIf="sel==='ars'" [name]="arsname" [players]="arsplayers" [stadium]="arsstadium" [attendance]="arsattendance"></app-ars>
+<app-pool *ngIf="sel==='pool'" [name]="poolname" [players]="poolplayers" [stadium]="poolstadium" [attendance]="poolattendance"></app-pool>
+<app-manchester *ngIf="sel==='man'" [name]="manname" [players]="manplayers" [stadium]="manstadium" [attendance]="manattendance"></app-manchester>

@@ -1,0 +1,29 @@
+<!-- <div *ngFor="let task of tasks"><app-task [name]="task" [lastname]="'Kovacs'" [bool]="bool" (taskClicked)="handleTaskClicked($event)"></app-task></div>
+<input type="checkbox" (click)="bool= !bool">{{bool}}  -->
+<!-- {{user}}<div *ngFor="let userr of user">
+    <pre>{{userr | json}}</pre></div>
+{{user | json}} -->
+<!-- <pre>{{ all | json }}</pre> -->
+<select [(ngModel)]="val">
+  <option value="family">Családi</option>
+  <option value="sport">Sportkocsi</option>
+  <option value="all">Összes</option>
+</select>
+
+<div *ngIf="val == 'sport'">
+  <div *ngFor="let sportt of sport">
+    <pre><p>ID: {{sportt.id}}</p><p>Manufacturer: {{sportt.manufacturer}}</p><p>Seats: {{sportt.seats}}</p><p>Type:{{sportt.type}}<p>color: {{sportt.color}}</p></pre>
+  </div>
+</div>
+<div *ngIf="val == 'family'">
+  <div *ngFor="let familyy of family">
+    <pre><p>ID: {{familyy.id}}</p><p>Manufacturer: {{familyy.manufacturer}}</p><p>Seats: {{familyy.seats}}</p><p>Type: {{familyy.type}}<p>color: {{familyy.color}}</p></pre>
+  </div>
+</div>
+<div *ngIf="val == 'all'">
+  <div *ngFor="let familyy of all">
+    <div *ngFor="let familyyy of familyy">
+      <pre><p>ID: {{familyyy.id}}</p><p>Manufacturer: {{familyyy.manufacturer}}</p><p>Seats: {{familyyy.seats}}</p><p>Type: {{familyyy.type}}<p>color: {{familyyy.color}}</p></pre>
+    </div>
+  </div>
+</div>
