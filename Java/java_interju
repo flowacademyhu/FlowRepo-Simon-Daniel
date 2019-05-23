@@ -1,0 +1,190 @@
+1. Melyik állítás hamis?
+a, Minden objektumot meg lehet szólítani a toString() metódussal, függetlenül attól, hogy az adott osztályban definiálták-e, vagy sem.
+b, A toString() minden esetben az objektum adatait adja vissza szöveges formában. HAMIS
+c, Egy osztályban nem feltétlenül kell szerepelnie toString metódusnak
+d, A System.out.println() metódus paraméterében bármilyen objektum szerepelhet
+
+2,Adott a következő deklaráció:
+	String szo = "Virágot";
+Melyik kifejezés adja vissza a "rág" résszót?
+a, szo.substring(3,3);
+a, szo.substring(2,3);
+a, szo.substring(2,4);
+a, szo.substring(2,5);EZ
+
+3. Melyik állítás igaz a következők közül?
+a, Egy statikus metódus meghívhatja ugyanazon osztály egy nem statikus metódusát a this kulcsszó segítségével.
+b, Az osztály összes osztály- és példánymetódusa híváskor átad egy implicit this paramétert. 
+c, Minden objektumban helyet kap az a változó, aminek van static módosítója.
+d, Minden objektumban helyet kap az a változó, aminek nincs static módosítója. ez
+
+4. Adott a következő kódrészlet:
+
+class A {
+	final public int getResult(int a, int b){ return 0;}
+}
+
+class B extends A{
+	public int getResult(int a, int b){ retunr 1;}
+}
+
+public class Test{
+
+	public static void main(String[] args){
+
+		B b = new B();
+		System.out.println("x = " + b.getResult(0,1));
+	}
+}
+
+Mit ír ki a fenti kódrészlet?
+a, x = 0
+b, x = 1 
+c, Fordítási hiba keletkezik EZ
+d, Futás közben kivétel dobódik
+
+5, Adott az alábbi kódrészlet:
+
+class Two{
+	byte x;
+}
+
+public class Pass0{
+
+	public static void main(String[]args){
+		Pass0 p = new Pass0();
+		p.start();
+	}
+
+	void start(){
+		Two t = new Two();
+		System.out.print(t.x + " ");
+		Two t2 = fix(t);
+		System.out.println(t.x + " " + t2.x);
+	}
+
+	void fix(Two tt){
+		tt.x = 42;
+		return tt;
+	}
+}	
+
+Mi lesz a program futásának eredménye?
+a, null null 42
+b, 0 0 42
+c, 0 42 42 ez
+d, 0 0 0 
+
+6. Adott az alábbi kódrészlet:
+public class Test{
+	public static void main(String[]args){
+		class Foo{
+			public int i = 3;
+		}
+		Object o = (Object)new Foo();
+		Foo foo = (Foo)o;
+		System.out.println("i = " + foo.i);
+	}
+}
+Mi lesz a futás eredménye?
+a, A programrészlet szintaktikailag hibás 
+b, i = 3; EZ
+c, ClassCastException keletkezik
+d, i = 5;
+
+7.Adott az alábbi kódrészlet:
+public class Test{
+	public static void main(String[]args){
+		int x = 12;
+		int a = 5;
+		int b = 7;
+		System.out.println(x/a + " " + x/b);
+	}
+}
+Mi lesz a futás eredménye?
+a, A programrészlet szintaktikailag hibás.
+b, 2 1 EZ
+c, 2 2 
+d, 3 1
+
+8. Melyik állítás hamis az alábbiak közül?
+a, Az objektumot születéskor inicializálni kell
+b, Az objektum kezdeti állapotát a konstruktor állítja be.
+c, Az osztálymetódus(STATIC) elérheti a példányváltozót. HAMIS
+d, A példánymetódus elérheti az osztályváltozót.
+
+9. Melyik állítás igaz az alábbiak közül?
+a, A nyilvános (public) deklarációt mindenki látja, tehát az osztály egy példányának használója, és az osztály leszármazottai is. IGAZ
+b, A védett (protected) deklarációt mindenki láthatja, aki megszólítja az osztály egy példányát.
+c, A privát (private) deklarációt kizárólag az osztály, és annak leszármazottai érhetik el. 
+d, A protected deklaráció erősebb védelmet ad, mint a private.
+
+10. Melyik állítás igaz az alábbiak közül?
+a, A specializálás az a folyamat, mely során több dolog leírásából kiemeljük a közös jellemzőket.
+b, Az általánosítás az a folyamat, mely során több dolog leírásából kiemeljük a közös jellemzőket. IGAZ
+c, Az öröklődés objektumok között definiált kapcsolat.
+d, Ha B osztály A leszármazottja, akkor hivatkozhat A osztály összes privát metódusára.
+
+11. Melyik állítás hamis az alábbiak közül?
+a, A this egy objektumreferencia. 
+b, A super egy objektumreferencia. 
+c, Ha egy hivatkozásban nem adunk meg célobjektumot, akkor a fordító this-t veszi célobjektumnak.
+d, Ha ősadatra hivatkozunk, használnunk kell a this minősítést. HAMIS
+
+12. Adott az alábbi kódrészlet:
+public class Test{
+
+	static int s;
+
+	public static void main(String[]args){
+		Test p = new Test();
+		p.start();
+		System.out.println(s);
+	}
+
+	void start(){
+		int x = 7;
+		twice(x);		
+		System.out.println(x + " ");
+	}
+
+	void twice(int x){
+		x = x * 2;
+		s = x; 
+	}
+}
+Mi lesz a program futásának eredménye?
+a, 7 7
+b, 7 14 EZ
+c, 14 0 
+d, 14 14
+
+13. Adott az alábbi kódrészlet:
+import java.io.*;
+
+public class Test{
+	public static void main(String[]args){
+		FileOutputStream out = null;
+		try{
+			out = new FileOutputStream("test.txt");
+			out.write(122);
+		} catch (IOException e){
+			System.out.println("IO error");
+		} finally{
+			out.close();
+		}
+
+	}
+}
+
+Mi igaz az alábbiak közül abban az esetben, ha IOException keletkezett?
+a, A program szintaktikailag helyes
+b, Fordítási hiba keletkezik az "out = new FileOutputStream(.." sorban 
+c, Fordítási hiba keletkezik az "out.write.." sorban
+d, Fordítási hiba keletkezik az "out.close()" sorban. EZ
+
+14. Melyik állítás igaz az alábbiak közül?
+a, Az interfész fejében ki kell tenni az abstract módosítót.
+b, Az interfészben nem adható meg konstans deklaráció
+c, Ha az interfész deklarációjában egy metódusfej előtt nem adunk meg módosítót, az alapértelmezetten public és abstract lesz. EZ
+d, Egy osztály csak egy interfészt implementálhat.
